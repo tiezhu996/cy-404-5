@@ -21,7 +21,7 @@ export function useDragSort<T>(list: T[], onSorted?: (items: T[]) => void) {
         return;
       }
 
-      const nextItems = moveItem(items, result.source.index, Math.max(0, result.destination.index - 1));
+      const nextItems = moveItem(items, result.source.index, result.destination.index);
       setItems(nextItems);
       onSorted?.(nextItems);
     },

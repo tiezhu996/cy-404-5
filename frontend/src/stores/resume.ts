@@ -169,10 +169,10 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
       resumes: state.resumes.map((resume) =>
         resume.id === resumeId
           ? {
-              ...resume,
-              ...patch,
-              updatedAt: new Date().toISOString(),
-            }
+            ...resume,
+            ...patch,
+            updatedAt: new Date().toISOString(),
+          }
           : resume,
       ),
     }));
@@ -183,10 +183,10 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
       resumes: state.resumes.map((resume) =>
         resume.id === resumeId
           ? {
-              ...resume,
-              basicInfo: { ...resume.basicInfo, ...patch },
-              updatedAt: new Date().toISOString(),
-            }
+            ...resume,
+            basicInfo: { ...resume.basicInfo, ...patch },
+            updatedAt: new Date().toISOString(),
+          }
           : resume,
       ),
     }));
@@ -201,7 +201,7 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
         const sortedSections = sectionIds
           .map((sectionId) => resume.sections.find((section) => section.id === sectionId))
           .filter((section): section is ResumeSection => Boolean(section));
-        return { ...resume, sections: sortedSections.filter((section) => section.enabled), updatedAt: new Date().toISOString() };
+        return { ...resume, sections: sortedSections, updatedAt: new Date().toISOString() };
       }),
     }));
     persist(get());
@@ -211,12 +211,12 @@ export const useResumeStore = create<ResumeState>((set, get) => ({
       resumes: state.resumes.map((resume) =>
         resume.id === resumeId
           ? {
-              ...resume,
-              sections: resume.sections.map((section) =>
-                section.id === sectionId ? { ...section, enabled: !section.enabled } : section,
-              ),
-              updatedAt: new Date().toISOString(),
-            }
+            ...resume,
+            sections: resume.sections.map((section) =>
+              section.id === sectionId ? { ...section, enabled: !section.enabled } : section,
+            ),
+            updatedAt: new Date().toISOString(),
+          }
           : resume,
       ),
     }));

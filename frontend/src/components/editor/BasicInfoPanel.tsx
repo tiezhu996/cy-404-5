@@ -30,7 +30,7 @@ export function BasicInfoPanel({ value, onChange }: BasicInfoPanelProps) {
         </label>
         <label className="space-y-1 text-sm font-medium">
           <span>电话</span>
-          <input className={inputClass} value={value.phone} onChange={(event) => onChange({ website: event.target.value })} />
+          <input className={inputClass} value={value.phone} onChange={(event) => onChange({ phone: event.target.value })} />
         </label>
         <label className="space-y-1 text-sm font-medium">
           <span>邮箱</span>
